@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import be.vdab.dao.NamenDAO;
 
-public class NamenServiceImpl implements NamenService {
+class NamenServiceImpl implements NamenService {
 	private NamenDAO namenDAO;
 	
 	public NamenServiceImpl(NamenDAO namenDAO) {

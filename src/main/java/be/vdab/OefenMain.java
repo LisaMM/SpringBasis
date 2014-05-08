@@ -20,7 +20,6 @@ public class OefenMain {
 		try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
 				"spring/container.xml")) {
 			PersoonViewer viewer = context.getBean(PersoonViewer.class);
-			viewer.afbeelden(personen);
 		}
 	}
 }

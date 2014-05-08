@@ -1,13 +1,18 @@
 package be.vdab;
 
-public class PersoonViewer {
-	PersoonEigenschappen[] eigenschappen;
+import be.vdab.services.PersoonService;
 
-	public PersoonViewer(PersoonEigenschappen[] eigenschappen) {
+public class PersoonViewer {
+	private PersoonEigenschappen[] eigenschappen;
+	private PersoonService persoonService;
+
+	public PersoonViewer(PersoonService service, PersoonEigenschappen[] eigenschappen) {
+		persoonService = service;
 		this.eigenschappen = eigenschappen;
 	}
 
-	public void afbeelden(Iterable<Persoon> personen) {
+	public void afbeelden() {
+		Iterable<Persoon> personen = persoonService.findAll();
 		for (Persoon persoon : personen) {
 			for (PersoonEigenschappen eigenschap : eigenschappen) {
 				toonEigenschap(persoon, eigenschap);

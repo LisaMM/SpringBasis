@@ -3,7 +3,7 @@ package be.vdab.dao;
 import java.io.*;
 import java.util.Collection;
 
-public class NamenDAOXML implements NamenDAO {
+class NamenDAOXML implements NamenDAO {
 	private File bestand;
 
 	public void setBestand(File bestand) {

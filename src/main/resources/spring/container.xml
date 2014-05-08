@@ -3,21 +3,17 @@
 	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
 	xsi:schemaLocation='http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd'>
-	<bean id='classA' class='be.vdab.ClassA'>
-		<property name='telefoonNrHelpdesk' value='01/234.567.8' />
-		<property name='aantalPogingenUpdateKlant' value='3' />
-		<property name='maxTemperatuurMotor' value='200.2' />
-		<property name='urlKoersenVreemdeMuntenTOVEuro'
-			value='http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml' />
-		<property name='defaultTaalEnLandVanDeApplicatie' value='nl_BE' />
-		<property name='bestandMetTeImporterenData' value='c:/data/postcodes.txt' />
-		<property name='standaardBladRichtingInPrinter' value='LIGGEND' />
+	<bean id="persoonDAOCSV" class="be.vdab.dao.PersoonDAOCSV">
+		<constructor-arg value="c:/data/personen.csv" />
 	</bean>
-	<bean id='classB' class='be.vdab.ClassB'>
-		<constructor-arg value='01/234.567.8' />
-		<constructor-arg value='3' />
+	<bean id="persoonDAOMeerdereRegels" class="be.vdab.dao.PersoonDAOMeerdereRegels">
+		<constructor-arg value="c:/data/personen.txt" />
 	</bean>
-	<bean id='persoonViewer' class='be.vdab.PersoonViewer'>
+	<bean id="persoonService" class="be.vdab.services.PersoonServiceImpl">
+		<constructor-arg ref="persoonDAOCSV" />
+	</bean>
+	<bean id="persoonViewer" class="be.vdab.presentation.PersoonViewer">
+		<constructor-arg ref="persoonService" />
 		<constructor-arg>
 			<list>
 				<value>VOORNAAM</value>
@@ -25,30 +21,5 @@
 				<value>AANTAL_KINDEREN</value>
 			</list>
 		</constructor-arg>
-	</bean>
-	<bean id='helpdeskMedewerkers' class='be.vdab.HelpdeskMedewerkers'>
-		<constructor-arg>
-			<props>
-				<prop key='Joe'>123</prop>
-				<prop key='Jack'>456</prop>
-				<prop key='William'>789</prop>
-				<prop key='Averell'>012</prop>
-			</props>
-		</constructor-arg>
-	</bean>
-	<bean id='teller1' class='be.vdab.Teller' scope='prototype'>
-		<constructor-arg value='7' />
-	</bean>
-	<bean id='teller2' class='be.vdab.Teller'>
-		<constructor-arg value='666' />
-	</bean>
-	<bean id='namenDAOTXT' class='be.vdab.dao.NamenDAOTXT'>
-		<property name='bestand' value='c:/data/namen.txt' />
-	</bean>
-	<bean id='namenDAOXML' class='be.vdab.dao.NamenDAOXML'>
-		<property name='bestand' value='c:/data/namen.xml' />
-	</bean>
-	<bean id='namenService' class='be.vdab.services.NamenServiceImpl'>
-		<constructor-arg ref='namenDAOXML' />
 	</bean>
 </beans>
