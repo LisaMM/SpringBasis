@@ -3,7 +3,7 @@ package be.vdab;
 import java.io.File;
 import java.math.BigDecimal;
 import java.net.URL;
-import java.util.Locale;
+import java.util.*;
 
 public class ClassA implements InterfaceA {
 	private String telefoonNrHelpdesk;
@@ -13,6 +13,8 @@ public class ClassA implements InterfaceA {
 	private Locale defaultTaalEnLandVanDeApplicatie;
 	private File bestandMetTeImporterenData;
 	private BladRichtingInPrinter standaardBladRichtingInPrinter;
+	private EMailAdres webMasterEMailAdres;
+	private Date webSiteGestart;
 	
 	@Override
 	public String getBoodschap() {
@@ -76,5 +78,21 @@ public class ClassA implements InterfaceA {
 
 	public void setBestandMetTeImporterenData(File bestandMetTeImporterenData) {
 		this.bestandMetTeImporterenData = bestandMetTeImporterenData;
+	}
+
+	public EMailAdres getWebMasterEMailAdres() {
+		return webMasterEMailAdres;
+	}
+
+	public void setWebMasterEMailAdres(EMailAdres webMasterEMailAdres) {
+		this.webMasterEMailAdres = webMasterEMailAdres;
+	}
+
+	public Date getWebSiteGestart() {
+		return webSiteGestart;
+	}
+
+	public void setWebSiteGestart(Date webSiteGestart) {
+		this.webSiteGestart = webSiteGestart;
 	}
 }

@@ -3,23 +3,16 @@
 	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
 	xsi:schemaLocation='http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd'>
-	<bean id="persoonDAOCSV" class="be.vdab.dao.PersoonDAOCSV">
-		<constructor-arg value="c:/data/personen.csv" />
+	<bean id='classA' class='be.vdab.ClassA'>
+		<property name='webMasterEMailAdres' value='SpringIntVeld@vdab.be' />
+		<property name='webSiteGestart' value='2008-07-31' />
 	</bean>
-	<bean id="persoonDAOMeerdereRegels" class="be.vdab.dao.PersoonDAOMeerdereRegels">
-		<constructor-arg value="c:/data/personen.txt" />
-	</bean>
-	<bean id="persoonService" class="be.vdab.services.PersoonServiceImpl">
-		<constructor-arg ref="persoonDAOCSV" />
-	</bean>
-	<bean id="persoonViewer" class="be.vdab.presentation.PersoonViewer">
-		<constructor-arg ref="persoonService" />
-		<constructor-arg>
+	<bean id='conversionService'
+		class='org.springframework.context.support.ConversionServiceFactoryBean'>
+		<property name='converters'>
 			<list>
-				<value>VOORNAAM</value>
-				<value>FAMILIENAAM</value>
-				<value>AANTAL_KINDEREN</value>
+				<bean class='be.vdab.converters.StringToDateConverter' />
 			</list>
-		</constructor-arg>
+		</property>
 	</bean>
 </beans>
