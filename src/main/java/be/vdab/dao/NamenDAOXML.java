@@ -3,8 +3,18 @@ package be.vdab.dao;
 import java.io.*;
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.Repository;
+
+@Repository("namenDAOXML")
+@Qualifier("XMLFormaat")
 class NamenDAOXML implements NamenDAO {
 	private File bestand;
+
+	@Autowired
+	public NamenDAOXML(@Value("${namenXML}") File bestand) {
+		this.bestand = bestand;
+	}
 
 	public void setBestand(File bestand) {
 		this.bestand = bestand;

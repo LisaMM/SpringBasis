@@ -8,12 +8,7 @@
 	http://www.springframework.org/schema/context/spring-context.xsd'>
 	<context:property-placeholder location='classpath:spring/namenDAO.properties, classpath:spring/personenDAO.properties'
 		ignore-unresolvable='true'/>
-	<bean id='namenDAOTXT' class='be.vdab.dao.NamenDAOTXT'>
-		<property name='bestand' value='${namenTXT}' />
-	</bean>
-	<bean id='namenDAOXML' class='be.vdab.dao.NamenDAOXML'>
-		<property name='bestand' value='${namenXML}' />
-	</bean>
+	<context:component-scan base-package="be.vdab.dao"/>
 	<bean id="persoonDAOCSV" class="be.vdab.dao.PersoonDAOCSV">
 		<constructor-arg value="${persoonDAOCSV}"/>
 	</bean>
