@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns='http://www.springframework.org/schema/beans'
 	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xmlns:context='http://www.springframework.org/schema/context'
 	xsi:schemaLocation='http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans.xsd'>
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd'>
+	<context:property-placeholder location='classpath:spring/namenDAO.properties, classpath:spring/personenDAO.properties'
+		ignore-unresolvable='true'/>
 	<bean id='namenDAOTXT' class='be.vdab.dao.NamenDAOTXT'>
-		<property name='bestand' value='c:/data/namen.txt' />
+		<property name='bestand' value='${namenTXT}' />
 	</bean>
 	<bean id='namenDAOXML' class='be.vdab.dao.NamenDAOXML'>
-		<property name='bestand' value='c:/data/namen.xml' />
+		<property name='bestand' value='${namenXML}' />
+	</bean>
+	<bean id="persoonDAOCSV" class="be.vdab.dao.PersoonDAOCSV">
+		<constructor-arg value="${persoonDAOCSV}"/>
+	</bean>
+	<bean id="persoonDAOMeerdereRegels"
+		class="be.vdab.dao.PersoonDAOMeerdereRegels">
+		<constructor-arg value="${persoonDAOTXT}"/>
 	</bean>
 </beans>

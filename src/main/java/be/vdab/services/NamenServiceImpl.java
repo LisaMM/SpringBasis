@@ -2,12 +2,17 @@ package be.vdab.services;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.Service;
+
 import be.vdab.dao.NamenDAO;
 
+@Service("namenService")
 class NamenServiceImpl implements NamenService {
 	private NamenDAO namenDAO;
 	
-	public NamenServiceImpl(NamenDAO namenDAO) {
+	@Autowired
+	public void setNamenDAO(@Qualifier("XMLFormaat") NamenDAO namenDAO) {
 		this.namenDAO = namenDAO;
 	}
 

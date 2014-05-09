@@ -6,10 +6,10 @@ import java.util.List;
 
 import be.vdab.Persoon;
 
-public class PersoonDAOMeerderRegels implements PersoonDAO {
+public class PersoonDAOMeerdereRegels implements PersoonDAO {
 	private File bestand;
 
-	public PersoonDAOMeerderRegels(File bestand) {
+	public PersoonDAOMeerdereRegels(File bestand) {
 		this.bestand = bestand;
 	}
 

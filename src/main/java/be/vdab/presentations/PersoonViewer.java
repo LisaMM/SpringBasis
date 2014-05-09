@@ -1,5 +1,7 @@
-package be.vdab;
+package be.vdab.presentations;
 
+import be.vdab.Persoon;
+import be.vdab.PersoonEigenschappen;
 import be.vdab.services.PersoonService;
 
 public class PersoonViewer {
