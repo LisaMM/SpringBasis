@@ -3,12 +3,18 @@ package be.vdab.dao;
 import java.io.*;
 import java.util.*;
 
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.Repository;
+
 import be.vdab.Persoon;
 
+@Repository
+@Qualifier("CVSFormaat")
 public class PersoonDAOCSV implements PersoonDAO {
 	private File bestand;
 
-	public PersoonDAOCSV(File bestand) {
+	@Autowired
+	public PersoonDAOCSV(@Value("${personenDAOCVS}") File bestand) {
 		this.bestand = bestand;
 	}
 

@@ -1,15 +1,20 @@
 package be.vdab.dao;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.Repository;
 
 import be.vdab.Persoon;
 
+@Repository
+@Qualifier("MeerdereRegelsFormaat")
 public class PersoonDAOMeerdereRegels implements PersoonDAO {
 	private File bestand;
 
-	public PersoonDAOMeerdereRegels(File bestand) {
+	@Autowired
+	public PersoonDAOMeerdereRegels(@Value("${personenDAOTXT}") File bestand) {
 		this.bestand = bestand;
 	}
 
