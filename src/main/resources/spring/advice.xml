@@ -9,4 +9,5 @@
 	<bean id='auditing' class='be.vdab.aspects.Auditing'/>
 	<bean id='logging' class='be.vdab.aspects.Logging'/>
 	<bean id='performance' class='be.vdab.aspects.Performance'/>
+	<bean id='statistiek' class='be.vdab.aspects.StatistiekImpl'/>
 </beans>
