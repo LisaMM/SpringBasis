@@ -18,11 +18,16 @@ class NamenServiceImpl implements NamenService {
 
 	@Override
 	public void opslaan(Collection<String> namen) {
+		System.out.println("begin opslaan");
 		namenDAO.opslaan(namen);
+		System.out.println("einde opslaan");
 	}
 
 	@Override
 	public int getAantalOpgeslagenNamen() {
-		return namenDAO.getAantalOpgeslagenNamen();
+		System.out.println("begin getAantalOpgeslagenNamen");
+		int aantalOpgeslagenNamen = namenDAO.getAantalOpgeslagenNamen();
+		System.out.println("einde getAantalOpgeslagenNamen");
+		return aantalOpgeslagenNamen;
 	}
 }
