@@ -12,7 +12,7 @@ public class PersoonServiceImpl implements PersoonService {
 	private final PersoonDAO persoonDAO;
 	
 	@Autowired
-	public PersoonServiceImpl (@Qualifier("CVSFormaat") PersoonDAO persoonDAO) {
+	public PersoonServiceImpl (@Qualifier("MeerdereRegelsFormaat") PersoonDAO persoonDAO) {
 		this.persoonDAO = persoonDAO;
 	}
 

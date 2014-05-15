@@ -2,10 +2,12 @@ package be.vdab.aspects;
 
 import org.aspectj.lang.*;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 
 @Aspect
+@Order(2)
 class Auditing {
-	@Before("execution(* be.vdab.services.*.*(..))")
+	@After("be.vdab.aspects.PointcutExpressions.servicePointcut()")
 	public void schrijfInAuditTable(JoinPoint joinPoint) {
 		System.out.println("Record toevoegen aan auditing table");
 		Signature signature = joinPoint.getSignature();
